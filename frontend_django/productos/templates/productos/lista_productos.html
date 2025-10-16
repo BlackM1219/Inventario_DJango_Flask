@@ -1,9 +1,9 @@
-LISTA_HTML = '''{% extends 'productos/base.html' %} {% block title %}Lista de Productos{% endblock %} {% block extra_css %}
+{% extends 'productos/base.html' %} {% block title %}Lista de Productos{% endblock %} {% block extra_css %}
 <style>
     .search-box {
         margin-bottom: 20px;
     }
-    
+
     .search-box input {
         width: 100%;
         padding: 10px;
@@ -11,61 +11,61 @@ LISTA_HTML = '''{% extends 'productos/base.html' %} {% block title %}Lista de Pr
         border-radius: 4px;
         font-size: 14px;
     }
-    
+
     table {
         width: 100%;
         border-collapse: collapse;
         margin-top: 20px;
     }
-    
+
     th,
     td {
         padding: 12px;
         text-align: left;
         border-bottom: 1px solid #ddd;
     }
-    
+
     th {
         background: #f8f9fa;
         font-weight: bold;
     }
-    
+
     tbody tr:hover {
         background: #f8f9fa;
     }
-    
+
     .badge {
         padding: 4px 8px;
         border-radius: 4px;
         font-size: 0.85em;
     }
-    
+
     .badge-ok {
         background: #d4edda;
         color: #155724;
     }
-    
+
     .badge-bajo {
         background: #fff3cd;
         color: #856404;
     }
-    
+
     .badge-agotado {
         background: #f8d7da;
         color: #721c24;
     }
-    
+
     .actions {
         display: flex;
         gap: 5px;
         flex-wrap: wrap;
     }
-    
+
     .btn-small {
         padding: 6px 12px;
         font-size: 0.85em;
     }
-    
+
     .empty-message {
         text-align: center;
         padding: 40px;
@@ -110,7 +110,8 @@ LISTA_HTML = '''{% extends 'productos/base.html' %} {% block title %}Lista de Pr
                 <div class="actions">
                     <a href="{% url 'detalle_producto' producto.id %}" class="btn btn-primary btn-small">Ver</a>
                     <a href="{% url 'editar_producto' producto.id %}" class="btn btn-warning btn-small">Editar</a>
-                    <form method="post" action="{% url 'eliminar_producto' producto.id %}" style="display: inline;" onsubmit="return confirm('¿Eliminar este producto?');">
+                    <form method="post" action="{% url 'eliminar_producto' producto.id %}" style="display: inline;"
+                        onsubmit="return confirm('¿Eliminar este producto?');">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-danger btn-small">Eliminar</button>
                     </form>

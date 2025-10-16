@@ -2,11 +2,12 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# SEGURIDAD: Esta clave es solo para desarrollo
 SECRET_KEY = "django-insecure-h!#cxg-pd-lj&!qoo$l(phw&1ax27&#-ljt@*_44%tpkxv%srg"
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -15,7 +16,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "productos",  # ← IMPORTANTE: Agregar esta línea
+    "productos",  # ← Nuestra aplicación
 ]
 
 MIDDLEWARE = [

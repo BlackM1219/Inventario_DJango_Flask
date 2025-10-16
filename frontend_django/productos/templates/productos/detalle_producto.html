@@ -1,4 +1,4 @@
-DETALLE_HTML = '''{% extends 'productos/base.html' %} {% block title %}{{ producto.nombre }}{% endblock %} {% block extra_css %}
+{% extends 'productos/base.html' %} {% block title %}{{ producto.nombre }}{% endblock %} {% block extra_css %}
 <style>
     .back-link {
         display: inline-block;
@@ -6,37 +6,37 @@ DETALLE_HTML = '''{% extends 'productos/base.html' %} {% block title %}{{ produc
         color: #667eea;
         text-decoration: none;
     }
-    
+
     .back-link:hover {
         text-decoration: underline;
     }
-    
+
     .producto-info {
         background: #f8f9fa;
         padding: 20px;
         border-radius: 8px;
         margin-bottom: 20px;
     }
-    
+
     .producto-info h2 {
         margin-bottom: 20px;
         color: #333;
     }
-    
+
     .info-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
         margin-bottom: 20px;
     }
-    
+
     .info-item {
         padding: 15px;
         background: white;
         border-left: 3px solid #667eea;
         border-radius: 4px;
     }
-    
+
     .info-item label {
         display: block;
         font-weight: bold;
@@ -44,12 +44,12 @@ DETALLE_HTML = '''{% extends 'productos/base.html' %} {% block title %}{{ produc
         color: #6c757d;
         font-size: 0.9em;
     }
-    
+
     .info-item .value {
         font-size: 1.1em;
         color: #333;
     }
-    
+
     .descripcion-box {
         padding: 15px;
         background: white;
@@ -57,7 +57,7 @@ DETALLE_HTML = '''{% extends 'productos/base.html' %} {% block title %}{{ produc
         border-radius: 4px;
         margin-bottom: 20px;
     }
-    
+
     .descripcion-box label {
         display: block;
         font-weight: bold;
@@ -65,20 +65,22 @@ DETALLE_HTML = '''{% extends 'productos/base.html' %} {% block title %}{{ produc
         color: #6c757d;
         font-size: 0.9em;
     }
-    
+
     .actions {
         display: flex;
         gap: 10px;
         flex-wrap: wrap;
     }
-    
+
     @media (max-width: 768px) {
         .info-grid {
             grid-template-columns: 1fr;
         }
+
         .actions {
             flex-direction: column;
         }
+
         .actions .btn,
         .actions button {
             width: 100%;
@@ -122,7 +124,8 @@ DETALLE_HTML = '''{% extends 'productos/base.html' %} {% block title %}{{ produc
 
     <div class="actions">
         <a href="{% url 'editar_producto' producto.id %}" class="btn btn-warning">Editar</a>
-        <form method="post" action="{% url 'eliminar_producto' producto.id %}" style="display: inline;" onsubmit="return confirm('¿Está seguro de eliminar este producto?');">
+        <form method="post" action="{% url 'eliminar_producto' producto.id %}" style="display: inline;"
+            onsubmit="return confirm('¿Está seguro de eliminar este producto?');">
             {% csrf_token %}
             <button type="submit" class="btn btn-danger">Eliminar</button>
         </form>
